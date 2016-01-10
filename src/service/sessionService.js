@@ -160,7 +160,7 @@ function SessionService() {
 
         FileUtil.rmdir(self.getStorePath(sessionId), function () {
             logger.debug('Session file storage removed: ' + sessionId);
-            daoService.delete(sessionId, function (err) {
+            daoService.remove(sessionId, function (err) {
                 logger.debug('Session redis storage removed: ' + sessionId);
                 callback(err);
             });

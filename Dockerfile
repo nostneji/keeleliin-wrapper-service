@@ -17,7 +17,7 @@ RUN npm install -g forever
 
 RUN mkdir -p /src && mkdir -p /config && mkdir -p /wrapper/files && mkdir -p /wrapper/tmp && \
 cd /src && \
-git clone 'https://github.com/BitWeb/keeleliin-wrapper-service.git' . && \
+git clone 'https://github.com/nostneji/keeleliin-wrapper-service.git' . && \
 npm install && \
 echo "NPM is installed 7"
 

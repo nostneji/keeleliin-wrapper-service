@@ -1,5 +1,5 @@
 /**
- * Loob ~1GB json objektide faili ja pasib seda striimis
+ * Loob ~1GB json objektide faili ja parsib seda striimis
  */
 
 var fs = require('fs');

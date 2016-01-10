@@ -39,7 +39,7 @@ var DaoService = function(){
         });
     };
 
-    this.delete = function(key, cb){
+    this.remove = function(key, cb){
 
         this.client.del(prefix + key, function (err, reply) {
             if(cb != undefined){
