@@ -1,7 +1,8 @@
 var config = require('./global_config/global');
 
 /*
- *	Teenuse url ilma pordita. Kasutatakse teenuse serverisse installeerimisel teenuse urli moodustamiseks: <url>:<port>/api/v1/
+ *	Teenuse url ilma pordita. Kasutatakse teenuse serverisse installeerimisel 
+ *  teenuse urli moodustamiseks kujul: <url>:<port>/api/v1/
  */
 config.serverUrl = 'http://localhost';
 
@@ -67,19 +68,19 @@ config.serverUrl = 'http://localhost';
  */
 
 config.wrapper = { //teenuse seadistus
-    id: 'concat', // Unikaalne lühinimi
-    title: 'Lihtne konkateneerija', //Avalik nimi
-    description: 'Konkateneerib etteantud failid üheks suureks failiks', //Kirjeldus
-    port: 3003, //port
-    class: 'simpleLocalCommand',    //wrapperi failinimi wrapper kaustast, mida utiliidi käivitamiseks kasutatakse
-    command: 'cat [data]',  // utiliidi käsurea käsk
+    id: '<shortname>', // Unikaalne lühinimi
+    title: '<teenuse avalik nimi>', // Avalik nimi
+    description: '<teenuse funktsiooni kirjeldus>', // Kirjeldus
+    port: 3003, // port
+    class: 'simpleLocalCommand', //wrapperi failinimi kaustast wrapper, mida utiliidi käivitamiseks kasutatakse
+    command: 'command [content]', // käsk utiliidi käivitamiseks käsurealt, etteantavaks sisendfailiks on [content]
     requestConf: { //Päringu seadistus
         requestBodyParamsMappings: { //Päringu post parameetrid
             isAsync: { //parameeter isAsync
                 type: config.paramTypes.SELECT, //Tüüp. Võimalikud väärtused: config.paramTypes.SELECT ja config.paramTypes.TEXT
                 options: ['0', '1'], //Võimalikud sobivad väärtused
                 value: '1', //Soovituslik vaikeväärtus
-                filter: function (value) { //parameerile rakendatav filter. Antud juhul viiaks väärtus boolean kujule
+                filter: function (value) { //parameetrile rakendatav filter. Antud juhul viiaks väärtus boolean kujule
                     return value == 1;
                 },
                 required: true, //kas mittetühi väärtus on nõutud
@@ -96,9 +97,9 @@ config.wrapper = { //teenuse seadistus
         requestFiles: { //Päringuga saadetavad failid
             content: { //Faili võti
                 type: 'text', //Ressursi tüübi võti
-                sizeLimit: 0, //Suuruse piirang
-                sizeUnit: 'byte',//Suuruse piirangu ühik
-                isList: true //Kas tegemist võib olla ka failide listuga
+                sizeLimit: 0, //Suuruse piirang; 0 - piiranguta
+                sizeUnit: 'byte', //Suuruse piirangu ühik
+                isList: true //Kas tegemist võib olla ka failide nimistuga
             }
         }
     },
