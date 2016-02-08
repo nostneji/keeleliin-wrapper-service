@@ -9,7 +9,9 @@ tmp_tests/contentTokenizer.js
 tmp_tests/jmeter.log
 tmp_tests/94megafile
 tmp_tests/189megafile
-keeleliin.log
+*.log
 coverage
 global_config/local_global.js
 updateWrappers.sh
+.project
+.settings
